@@ -6,19 +6,23 @@ dotenv.config();
 
 app.use(express.urlencoded({ extended: false }));
 
-const User = mongoose.model('User', {
-  frist_name: String,
-  last_name: String,
-  email: String,
-  avatar: String,
-});
+// const User = mongoose.model('User', {
+//   frist_name: String,
+//   last_name: String,
+//   email: String,
+//   avatar: String,
+// });
 
-app.get('/', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({ status: 'SUCCESS', message: 'All Good' });
 });
 
-app.listen(process.env.PORT_NO, () => {
-  mongoose.connect(process.env.MONGODB_URL)
-    .then(() => console.log(`Server is listening on port:${process.env.PORT_NO}...`))
-    .catch((error) => console.log(error));
+// app.listen(process.env.PORT_NO, () => {
+//   mongoose.connect(process.env.MONGODB_URL)
+//     .then(() => console.log(`Server is listening on port:${process.env.PORT_NO}...`))
+//     .catch((error) => console.log(error));
+// })
+
+app.listen(5000, () => {
+  console.log(`Server is listening on port:${process.env.PORT_NO}...`);
 })
